@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, request, Response, response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -19,6 +19,10 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.use(errorHandler);
+
+app.get('/', (req:Request, res:Response) => {
+    res.send('Welcome to the Stationary Shop');
+});
 
 mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/stationery-shop", );
 
