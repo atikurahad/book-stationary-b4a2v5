@@ -1,4 +1,4 @@
-import express, { Request, request, Response, response } from "express";
+import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -15,14 +15,15 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/',(req,res)=>{
+    res.send("Welcome to Stationary Shop")
+})
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.use(errorHandler);
 
-app.get('/', (req:Request, res:Response) => {
-    res.send('Welcome to the Stationary Shop');
-});
+
 
 mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/stationery-shop", );
 

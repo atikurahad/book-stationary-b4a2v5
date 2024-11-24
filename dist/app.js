@@ -16,11 +16,11 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
+app.use('/', (req, res) => {
+    res.send("Welcome to Stationary Shop");
+});
 app.use("/api/products", routes_products_1.default);
 app.use("/api/orders", routes_order_1.default);
 app.use(errorHandler_1.errorHandler);
-app.get('/', (req, res) => {
-    res.send('Welcome to the Stationary Shop');
-});
 mongoose_1.default.connect(process.env.MONGO_URI || "mongodb://localhost:27017/stationery-shop");
 exports.default = app;
