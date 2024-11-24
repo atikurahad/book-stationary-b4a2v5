@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -14,10 +14,10 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
-app.use('/',(req,res)=>{
-    res.send("Welcome to Stationary Shop")
-})
+// Root Route
+app.get('/', (req: Request, res: Response) => {
+    res.json({ message: "Welcome to Stationary Shop" });
+  });
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 
