@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Product } from '../models/product.model';
+import  Product  from '../models/product.model';
 
 
 export const createProduct = async (req: Request, res: Response) => {
@@ -12,18 +12,8 @@ export const createProduct = async (req: Request, res: Response) => {
   });
 };
 
-export const getAllProducts = async (req: Request, res: Response) => {
-  const { searchTerm } = req.query;
-  const filter = searchTerm
-    ? {
-        $or: [
-          { name: searchTerm },
-          { brand: searchTerm },
-          { category: searchTerm },
-        ],
-      }
-    : {};
-  const products = await Product.find(filter);
+export const getAllProducts = async (_: Request, res: Response) => {
+  const products = await Product.find();
   res.json({
     message: 'Products retrieved successfully',
     success: true,

@@ -35,4 +35,5 @@ ProductSchema.pre('save', function () {
   this.inStock = this.quantity > 0;
 });
 
-export const Product = model<IProduct>('Product', ProductSchema);
+const Product = model<IProduct>('Product', ProductSchema);
+export default Product;
