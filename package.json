@@ -1,14 +1,12 @@
 {
   "name": "stationeryshopb4a2v5",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon ./dist/server.js",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "npx eslint . --fix",
+    "start": "node dist/server.js",
     "build": "tsc",
-    "prettier": "prettier . --write",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --watch . --exec ts-node server.ts",
+    "vercel-build": "tsc"
   },
   "author": "atikur ahad",
   "license": "ISC",
