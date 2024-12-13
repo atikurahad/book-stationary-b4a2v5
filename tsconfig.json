@@ -19,6 +19,7 @@
     "strictNullChecks": true
   },
   "include": [
+    "app.ts",
     "src/**/*.ts",          // Include TypeScript files from src
     "server.ts"              // Include index.ts as it is in the root
   ],
